@@ -7,7 +7,7 @@ machines.machines = {}
 States are comprised of a required update function and optional enter and/or exit function. These functions are self-explanatory.
 The update function may return a modality in order to update the machine internally.
 
-Let a, b, ..., f denote state names and let u, v, ..., z denote modality names.
+Let a, b, ..., f denote state names and let u, v, ..., z denote modality names. Example:
 
 local function update_b()
 
@@ -36,6 +36,7 @@ Hybrid     | x = {from = {{"a", "b", "c"}, "d"}, to = {"e", "f"}} | Combines fun
 There cannot be duplicate modalities. Furthermore, for the mapped and hybrid types, the table lengths must be the same.
 
 A simple coin flip betting game is constructed below. It just shows how connections need to be set up.
+It's good practice to draw out your state machine beforehand for reference when setting up the modalities.
 
 states = {
     betting = {enter = enable_betting_ui, update = get_bet_and_side, exit = disable_betting_ui},
